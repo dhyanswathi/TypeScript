@@ -9,7 +9,7 @@ interface IUserNameChangeComponentProps {
 const UserNameChange = ({user: {name}, onNameChanged} : IUserNameChangeComponentProps) => {
   return (
     <div>
-      <h1>Change the name of '{name}' here</h1>
+      <h2>Change the name of '{name}' here</h2>
       <input type="text" value={name} onChange={onNameChanged} />
     </div>
   )
