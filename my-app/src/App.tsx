@@ -4,6 +4,7 @@ import { UserInfo } from './types';
 import UserName from './Components/userName';
 import UserAge from './Components/userAge';
 import UserAddress from './Components/userAddress';
+import UserNameChange from './Components/userNameChange';
 
 function App() {
   const [user, setUser] = useState<UserInfo>({
@@ -11,6 +12,14 @@ function App() {
     age: 0,
     address: '',
   });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault()
+
+    const value = e.currentTarget.value
+
+    setUser({ ...user, name: value })
+  }
 
   useEffect(() => {
     const getData = async () => {
@@ -36,6 +45,7 @@ function App() {
       <UserName user={user} />
       <UserAge user={user} />
       <UserAddress user={user} />
+      <UserNameChange user={user} onNameChanged={handleChange} />
     </div>
   );
 }
