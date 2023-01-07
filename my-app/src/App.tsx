@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import { UserInfo } from './types';
 import UserName from './Components/userName';
+import UserAddress from './Components/userAddress';
 
 function App() {
   const [user, setUser] = useState<UserInfo>({
@@ -33,7 +34,7 @@ function App() {
     <div className="App">
       <UserName user={user} />
       <p>{user.age}</p>
-      <p>{user.address}</p>
+      <UserAddress user={user} />
     </div>
   );
 }
