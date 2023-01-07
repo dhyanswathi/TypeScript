@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import { UserInfo } from './types';
 import UserName from './Components/userName';
+import UserAge from './Components/userAge';
 import UserAddress from './Components/userAddress';
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <UserName user={user} />
-      <p>{user.age}</p>
+      <UserAge user={user} />
       <UserAddress user={user} />
     </div>
   );
