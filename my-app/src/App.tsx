@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-
-interface userInfo {
-  name: string,
-  age: number,
-  address: string
-}
+import { UserInfo } from './types';
+import UserName from './Components/userName';
 
 function App() {
-  const [userData, setUserData] = useState<userInfo>({
+  const [user, setUser] = useState<UserInfo>({
     name: '',
     age: 0,
     address: '',
@@ -21,12 +17,12 @@ function App() {
 
       const firstUser = data.results[0];
 
-      setUserData(prev => {
+      setUser(prev => {
         return {
           ...prev,
-          name: firstUser.name.first,
+          name: firstUser.name.first + ' ' + firstUser.name.last,
           age: firstUser.dob.age,
-          address: firstUser.location.street.name,
+          address: firstUser.location.street.name + ', ' + firstUser.location.country,
         }
       });
     }
@@ -35,9 +31,9 @@ function App() {
 
   return (
     <div className="App">
-      <p>{userData.name}</p>
-      <p>{userData.age}</p>
-      <p>{userData.address}</p>
+      <UserName user={user} />
+      <p>{user.age}</p>
+      <p>{user.address}</p>
     </div>
   );
 }
