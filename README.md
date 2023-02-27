@@ -1,5 +1,5 @@
 # TypeScript
-# TypesScript with React AddOn
+# TypeScript with React AddOn
 
 ## Task
 The task is to create a basic React application for random users. You'll be working towards the `https://randomuser.me/api/` api that will return a random user (you can fetch directly from your frontend this time).
